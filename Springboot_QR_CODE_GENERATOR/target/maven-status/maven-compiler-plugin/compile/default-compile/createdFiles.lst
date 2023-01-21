@@ -1,0 +1,3 @@
+com\qr\controller\MainController.class
+com\qr\SpringbootQrCodeGeneratorApplication.class
+com\qr\services\QRCodeGenerator.class
