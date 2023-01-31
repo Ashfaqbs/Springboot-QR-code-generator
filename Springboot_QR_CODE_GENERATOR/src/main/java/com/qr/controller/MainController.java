@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.awt.image.BufferedImage;
@@ -29,14 +30,16 @@ public class MainController {
    private static final String QR_CODE_IMAGE_PATH = "./src/main/resources/static/QRCode.png";
 
        
-    
-    @GetMapping("/{url}")
+//    url // http://localhost:8000/qrcode?url=https://github.com/DarkSharkAsh
+//    @GetMapping("/{url}")
+   @GetMapping("/qrcode")
     @ResponseBody
-    public   ResponseEntity<byte[]>  getQRCode1(@PathVariable("url") String url) throws IOException{
-        String medium=url;
+//    public   ResponseEntity<byte[]>  getQRCode1(@PathVariable("url") String url) throws IOException{
+    public   ResponseEntity<byte[]>  getQRCode1(@RequestParam(name = "url" ) String url) throws IOException{
+    	String medium=url;
         String github=url;
 
-        byte[] image = new byte[0];
+        byte[] image = new byte[0];	
         try {
 
             // Generate and Return Qr Code in Byte Array
